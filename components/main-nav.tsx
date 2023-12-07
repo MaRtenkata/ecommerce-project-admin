@@ -12,7 +12,7 @@ export function MainNav({
   const params = useParams();
   const routes = [
     {
-      href: `${params.storeId}/settings`,
+      href: `/${params.storeId}/settings`,
       lable: 'Settings',
       active: pathname === `${params.storeId}/settings`,
     },
