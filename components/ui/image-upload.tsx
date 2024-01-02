@@ -57,16 +57,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       </div>
       <CldUploadWidget onUpload={onUpload} uploadPreset='aviofskc'>
         {({ open }) => {
-          const onClick = () => {
-            open();
-          };
-
           return (
             <Button
               type='button'
               disabled={disabled}
               variant='secondary'
-              onClick={onClick}
+              onClick={() => open()}
             >
               <ImagePlus className='h-4 w-4 mr-2' />
               Upload an image
