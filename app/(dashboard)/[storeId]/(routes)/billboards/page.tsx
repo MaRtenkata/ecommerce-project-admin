@@ -1,6 +1,8 @@
 import prismadb from '@/lib/prismaDB';
+import { format } from 'date-fns';
 import { BillboardClient } from './components/client';
 import { BillboardColumn } from './components/columns';
+import { useEffect } from 'react';
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await prismadb.billboard.findMany({
@@ -15,7 +17,7 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const formateBillboard: BillboardColumn[] = billboards.map((item) => ({
     id: item.id,
     label: item.label,
-    createdAt: formatDate(item.createdAt),
+    createdAt: format(item.createdAt, 'MMMM do, yyyy'),
   }));
 
   return (
@@ -27,14 +29,14 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   );
 };
 
-function formatDate(date = new Date()) {
-  const year = date.toLocaleString('default', { year: 'numeric' });
-  const month = date.toLocaleString('default', {
-    month: '2-digit',
-  });
-  const day = date.toLocaleString('default', { day: '2-digit' });
+// function formatDate(date = new Date()) {
+//   const year = date.toLocaleString('default', { year: 'numeric' });
+//   const month = date.toLocaleString('default', {
+//     month: '2-digit',
+//   });
+//   const day = date.toLocaleString('default', { day: '2-digit' });
 
-  return [year, month, day].join('-');
-}
+//   return [year, month, day].join('-');
+// }
 
 export default BillboardsPage;
