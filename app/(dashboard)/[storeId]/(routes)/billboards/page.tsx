@@ -2,7 +2,6 @@ import prismadb from '@/lib/prismaDB';
 import { format } from 'date-fns';
 import { BillboardClient } from './components/client';
 import { BillboardColumn } from './components/columns';
-import { useEffect } from 'react';
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await prismadb.billboard.findMany({
