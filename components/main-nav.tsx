@@ -23,8 +23,13 @@ export function MainNav({
     },
     {
       href: `/${params.storeId}/categories`,
-      label: 'Categories',
-      active: pathname === `/${params.storeId}/categories`,
+      lable: 'Categories',
+      active: pathname === `${params.storeId}/categories`,
+    },
+    {
+      href: `/${params.storeId}/sizes`,
+      lable: 'Sizes',
+      active: pathname === `${params.storeId}/sizes`,
     },
     {
       href: `/${params.storeId}/settings`,
