@@ -1,4 +1,4 @@
-# Storefront App
+# Store managment Dashboard
 
 This is a storefront management application built with Next.js, Tailwind CSS, Prisma, and Clerk.
 

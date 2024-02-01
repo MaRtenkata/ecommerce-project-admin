@@ -93,9 +93,7 @@ export async function GET(
   req: Request,
   { params }: { params: { storeId: string } }
 ) {
-  console.log('🚀 ~ req.url:', req.url);
   const { searchParams } = new URL(req.url);
-  console.log('🚀 ~ searchParams:', searchParams);
 
   const categoryId = searchParams.get('categoryId') || undefined;
   const colorId = searchParams.get('colorId') || undefined;
